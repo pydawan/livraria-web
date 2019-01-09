@@ -14,6 +14,7 @@ public class LivroTest {
     @Test
     public void test() {
         Livro livro = new Livro();
+        livro.id = 1;
         fail("Not yet implemented");
     }
     
