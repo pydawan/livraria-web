@@ -9,12 +9,12 @@ package br.com.livrariaweb.model;
  */
 public class Livro {
     
-    // attributes
+    // Attributes
     public int id;
     public String titulo;
     public String autor;
     
-    // getters
+    // Getters
     public int getId() {
         return id;
     }
@@ -27,7 +27,7 @@ public class Livro {
         return autor;
     }
     
-    // setters
+    // Setters
     public void setId(int id) {
         this.id = id;
     }
