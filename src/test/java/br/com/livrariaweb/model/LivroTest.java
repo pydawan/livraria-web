@@ -16,6 +16,7 @@ public class LivroTest {
         livro.id = 1;
         Assert.assertTrue("FALHA: \"O id do livro não é igual a 1 como se esperava!\"", 1 == livro.id);
         livro.titulo = "O Senhor dos Anéis";
+        Assert.assertEquals("FALHA: \"O título do livro não é igual a O Senhor dos Anéis como se esperava!\"", "O Senhor dos Anéis", livro.titulo);
     }
     
 }
