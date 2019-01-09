@@ -11,5 +11,6 @@ public class Livro {
     
     public int id;
     public String titulo;
+    public String autor;
     
 }
