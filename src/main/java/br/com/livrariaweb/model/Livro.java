@@ -8,7 +8,8 @@ package br.com.livrariaweb.model;
  * @since v1.0.0
  */
 public class Livro {
-
+    
     public int id;
+    public String titulo;
     
 }
