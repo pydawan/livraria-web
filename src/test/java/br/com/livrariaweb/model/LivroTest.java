@@ -19,6 +19,7 @@ public class LivroTest {
         Assert.assertEquals("FALHA: \"O título do livro não é igual a O Senhor dos Anéis como se esperava!\"", "O Senhor dos Anéis", livro.getTitulo() );
         livro.setAutor("J.R.R Tolkien");
         Assert.assertEquals("FALHA: \"O autor do livro não é igual a J.R.R Tolkien como se esperava!\"", "J.R.R Tolkien", livro.getAutor() );
+        System.out.println(livro);
     }
     
 }

@@ -40,4 +40,9 @@ public class Livro {
         this.autor = autor;
     }
     
+    @Override
+    public String toString() {
+        return String.format("Livro (id = %s, titulo = %s, autor = %s)", id, titulo, autor);
+    }
+    
 }
