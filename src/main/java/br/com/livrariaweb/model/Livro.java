@@ -25,4 +25,16 @@ public class Livro {
         this.autor = autor;
     }
     
+    public int getId() {
+        return id;
+    }
+    
+    public String getTitulo() {
+        return titulo;
+    }
+    
+    public String getAutor() {
+        return autor;
+    }
+    
 }

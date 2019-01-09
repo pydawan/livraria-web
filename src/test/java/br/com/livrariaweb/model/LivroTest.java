@@ -14,11 +14,11 @@ public class LivroTest {
     public void test() {
         Livro livro = new Livro();
         livro.setId(1);
-        Assert.assertTrue("FALHA: \"O id do livro não é igual a 1 como se esperava!\"", 1 == livro.id);
+        Assert.assertTrue("FALHA: \"O id do livro não é igual a 1 como se esperava!\"", 1 == livro.getId() );
         livro.setTitulo("O Senhor dos Anéis");
-        Assert.assertEquals("FALHA: \"O título do livro não é igual a O Senhor dos Anéis como se esperava!\"", "O Senhor dos Anéis", livro.titulo);
+        Assert.assertEquals("FALHA: \"O título do livro não é igual a O Senhor dos Anéis como se esperava!\"", "O Senhor dos Anéis", livro.getTitulo() );
         livro.setAutor("J.R.R Tolkien");
-        Assert.assertEquals("FALHA: \"O autor do livro não é igual a J.R.R Tolkien como se esperava!\"", "J.R.R Tolkien", livro.autor);
+        Assert.assertEquals("FALHA: \"O autor do livro não é igual a J.R.R Tolkien como se esperava!\"", "J.R.R Tolkien", livro.getAutor() );
     }
     
 }
