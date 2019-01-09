@@ -1,7 +1,6 @@
 package br.com.livrariaweb.model;
 
-import static org.junit.Assert.*;
-
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -15,7 +14,7 @@ public class LivroTest {
     public void test() {
         Livro livro = new Livro();
         livro.id = 1;
-        fail("Not yet implemented");
+        Assert.assertTrue("FALHA: \"O id do livro não é igual a 1 como se esperava!\"", 1 == livro.id);
     }
     
 }
