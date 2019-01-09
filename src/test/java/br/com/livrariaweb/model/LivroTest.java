@@ -13,6 +13,7 @@ public class LivroTest {
     
     @Test
     public void test() {
+        Livro livro = new Livro();
         fail("Not yet implemented");
     }
     
