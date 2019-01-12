@@ -39,8 +39,8 @@
      providedCompile 'javax.el:el-api:2.2'
      providedCompile 'javax.servlet:jstl:1.2'
      compile 'log4j:log4j:1.2.17'
+     compile 'com.jcabi:jcabi-log:0.18'
      testCompile 'junit:junit:4.12'
-//     testCompile 'org.hamcrest:hamcrest-core:1.3'
  }
  
 
