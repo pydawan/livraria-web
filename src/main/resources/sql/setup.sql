@@ -1,0 +1,15 @@
+USE mysql;
+
+ CREATE DATABASE livraria DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+GRANT ALL PRIVILEGES ON livraria.* TO 'livraria'@'%' IDENTIFIED BY 'livraria';
+
+FLUSH PRIVILEGES;
+
+USE livraria;
+
+CREATE TABLE livros (
+    id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(255) NOT NULL,
+    autor VARCHAR(255) NOT NULL
+);
