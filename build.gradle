@@ -38,6 +38,7 @@
      providedCompile 'javax.servlet.jsp:jsp-api:2.2'
      providedCompile 'javax.el:el-api:2.2'
      providedCompile 'javax.servlet:jstl:1.2'
+     compile 'mysql:mysql-connector-java:8.0.13'
      compile 'log4j:log4j:1.2.17'
      compile 'com.jcabi:jcabi-log:0.18'
      testCompile 'junit:junit:4.12'
