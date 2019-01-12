@@ -1,5 +1,9 @@
 package br.com.livrariaweb.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Abstração de um livro no contexto do sistema.
  * 
@@ -9,13 +13,41 @@ package br.com.livrariaweb.model;
  */
 public class Livro {
     
+    public static final List<Livro> EMPTY_LIVRO_LIST = Collections.unmodifiableList(new ArrayList<>(0)); 
+    
     // Attributes
-    public int id;
-    public String titulo;
-    public String autor;
+    private Integer id;
+    private String titulo;
+    private String autor;
+    
+    public Livro(Integer id, String titulo, String autor) {
+        this.id = id;
+        this.titulo = titulo;
+        this.autor = autor;
+    }
+    
+    public Livro(String titulo, String autor) {
+        this(null, titulo, autor);
+    }
+    
+    public Livro() {
+        this(null, null, null);
+    }
+    
+    public static Livro of(Integer id, String titulo, String autor) {
+        return new Livro(id, titulo, autor);
+    }
+    
+    public static Livro of(String titulo, String autor) {
+        return new Livro(titulo, autor);
+    }
+    
+    public static Livro of() {
+        return new Livro();
+    }
     
     // Getters
-    public int getId() {
+    public Integer getId() {
         return id;
     }
     
@@ -28,7 +60,7 @@ public class Livro {
     }
     
     // Setters
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     
