@@ -25,7 +25,7 @@ public class LivroDAO implements DAO<Livro> {
     }
     
     @Override
-    public void insert(Livro livro) throws DAOException {
+    public DAO<Livro> insert(Livro livro) throws DAOException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         if (livro != null) {
@@ -54,10 +54,11 @@ public class LivroDAO implements DAO<Livro> {
         } else {
             throw new DAOException(MENSAGEM_LIVRO_REFERENCIA_NAO_NULA);
         }
+        return this;
     }
     
     @Override
-    public void update(Livro livro) throws DAOException {
+    public DAO<Livro> update(Livro livro) throws DAOException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         if (livro != null) {
@@ -88,10 +89,11 @@ public class LivroDAO implements DAO<Livro> {
         } else {
             throw new DAOException(MENSAGEM_LIVRO_REFERENCIA_NAO_NULA);
         }
+        return this;
     }
     
     @Override
-    public void save(Livro livro) throws DAOException {
+    public DAO<Livro> save(Livro livro) throws DAOException {
         if (livro != null) {
             if (livro.getId() == null || livro.getId() == 0) {
                 this.insert(livro);
@@ -101,10 +103,11 @@ public class LivroDAO implements DAO<Livro> {
         } else {
             throw new DAOException(MENSAGEM_LIVRO_REFERENCIA_NAO_NULA);
         }
+        return this;
     }
     
     @Override
-    public void delete(Livro livro) throws DAOException {
+    public DAO<Livro> delete(Livro livro) throws DAOException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         if (livro != null) {
@@ -132,10 +135,11 @@ public class LivroDAO implements DAO<Livro> {
         } else {
             throw new DAOException(MENSAGEM_LIVRO_REFERENCIA_NAO_NULA);
         }
+        return this;
     }
     
     @Override
-    public void deleteById(Integer id) throws DAOException {
+    public DAO<Livro> deleteById(Integer id) throws DAOException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         id = id == null ? 0 : id;
@@ -164,6 +168,16 @@ public class LivroDAO implements DAO<Livro> {
         } else {
             throw new DAOException(MENSAGEM_LIVRO_REFERENCIA_NAO_NULA);
         }
+        return this;
+    }
+    
+    @Override
+    public DAO<Livro> deleteAll() throws DAOException {
+        List<Livro> livros = this.selectAll();
+        for (Livro livro : livros) {
+            this.delete(livro);
+        }
+        return this;
     }
     
     @Override
@@ -248,14 +262,6 @@ public class LivroDAO implements DAO<Livro> {
             }
         }
         return livros;
-    }
-    
-    @Override
-    public void deleteAll() throws DAOException {
-        List<Livro> livros = this.selectAll();
-        for (Livro livro : livros) {
-            this.delete(livro);
-        }
     }
     
     public static void checkForeignKeys(boolean value) throws DAOException {

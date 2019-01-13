@@ -15,12 +15,12 @@ public interface DAO<T> {
      * Insere um registro no banco de dados.
      * @param t  referência para o objeto a ser inserido
      */
-    void insert(T t) throws DAOException;
-    void update(T t) throws DAOException;
-    void save(T t) throws DAOException;
-    void delete(T t) throws DAOException;
-    void deleteById(Integer id) throws DAOException;
-    void deleteAll() throws DAOException;
+    DAO<T> insert(T t) throws DAOException;
+    DAO<T> update(T t) throws DAOException;
+    DAO<T> save(T t) throws DAOException;
+    DAO<T> delete(T t) throws DAOException;
+    DAO<T> deleteById(Integer id) throws DAOException;
+    DAO<T> deleteAll() throws DAOException;
     T selectById(Integer id) throws DAOException;
     List<T> selectAll() throws DAOException;
 }
