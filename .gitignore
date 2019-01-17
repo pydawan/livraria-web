@@ -3,7 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=git,java,bower,maven,gradle,intellij,java-web,eclipse
 
 ### Bower ###
-#bower_components
+bower_components
 .bower-cache
 .bower-registry
 .bower-tmp
