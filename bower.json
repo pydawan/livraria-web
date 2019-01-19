@@ -1,0 +1,37 @@
+{
+  "name": "livraria-web",
+  "homepage": "https://github.com/pydawan/livraria-web",
+  "authors": [
+    "Thiago Alexandre Martins Monteiro <thicmp@gmail.com>"
+  ],
+  "description": "Sistema de Controle de Livraria básico em Java para Web.",
+  "main": "main.js",
+  "keywords": [
+    "java",
+    "servlet",
+    "jsp",
+    "mvc",
+    "javascript",
+    "css",
+    "livro",
+    "livraria",
+    "web"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/main/webapp/static/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.4.0",
+    "jquery": "3.3.1"
+  },
+  "devDependencies": {
+    "jquery": "3.3.1",
+    "bootstrap": "3.4.0"
+  }
+}
