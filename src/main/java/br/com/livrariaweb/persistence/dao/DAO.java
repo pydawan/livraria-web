@@ -1,4 +1,4 @@
-package br.com.livrariaweb.dao;
+package br.com.livrariaweb.persistence.dao;
 
 import java.util.List;
 

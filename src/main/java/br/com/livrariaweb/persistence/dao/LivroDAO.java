@@ -1,4 +1,4 @@
-package br.com.livrariaweb.dao;
+package br.com.livrariaweb.persistence.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.livrariaweb.model.Livro;
+import br.com.livrariaweb.persistence.ConnectionFactory;
 
 /**
  * @author thiago-amm

@@ -8,8 +8,8 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.com.livrariaweb.dao.ConnectionFactory;
-import br.com.livrariaweb.dao.LivroDAO;
+import br.com.livrariaweb.persistence.ConnectionFactory;
+import br.com.livrariaweb.persistence.dao.LivroDAO;
 
 /**
  * @author thiago-amm

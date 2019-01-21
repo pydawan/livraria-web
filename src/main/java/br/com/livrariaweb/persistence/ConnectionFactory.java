@@ -1,4 +1,4 @@
-package br.com.livrariaweb.dao;
+package br.com.livrariaweb.persistence;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

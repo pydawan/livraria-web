@@ -2,8 +2,8 @@ package br.com.livrariaweb.service;
 
 import java.util.List;
 
-import br.com.livrariaweb.dao.LivroDAO;
 import br.com.livrariaweb.model.Livro;
+import br.com.livrariaweb.persistence.dao.LivroDAO;
 
 /**
  * @author thiago-amm

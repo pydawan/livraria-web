@@ -1,4 +1,4 @@
-package br.com.livrariaweb.dao;
+package br.com.livrariaweb.persistence.dao;
 
 /**
  * Representa as exceções a serem lançadas ao consultar ou manipular os dados no
