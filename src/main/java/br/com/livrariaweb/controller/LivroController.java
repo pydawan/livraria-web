@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.owlike.genson.Genson;
+
 import br.com.livrariaweb.model.Livro;
 import br.com.livrariaweb.service.LivroService;
 
@@ -25,6 +27,7 @@ public class LivroController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     
     private LivroService livroService;
+    private Genson genson;
     
     // Servlet Life Cyle
     
@@ -56,11 +59,26 @@ public class LivroController extends HttpServlet {
     // atende apenas requisições HTTP GET.
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/livros/listar.jsp");
-        livroService = new LivroService();
-        List<Livro> livros = livroService.listarLivros();
-        request.setAttribute("livros", livros);
-        rd.forward(request, response);
+    	response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+    	try {
+    		livroService = new LivroService();
+    		List<Livro> livros = livroService.listarLivros();
+    		
+    		if ( !livros.isEmpty() ) {
+    			genson = new Genson();
+    			String json = genson.serialize(livros);
+    			response.setStatus(HttpServletResponse.SC_OK);
+    			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/livros/index.jsp");
+    			request.setAttribute("livros", livros);
+    			request.setAttribute("livrosJSON", json);
+    			rd.forward(request, response);
+    		} else {
+    			response.sendError(HttpServletResponse.SC_NOT_FOUND, "Nenhum livro cadastrado!");
+    		}
+    	} catch (Exception e) {
+    		response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
+    	}
     }
     
 }
