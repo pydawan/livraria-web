@@ -21,7 +21,7 @@ import br.com.livrariaweb.service.LivroService;
  * @version v1.0.0 19/01/2019
  * @since v1.0.0
  */
-@WebServlet("/livros")
+@WebServlet(name = "livroController", urlPatterns = "/livros")
 public class LivroController extends HttpServlet {
     
     private static final long serialVersionUID = 1L;
@@ -59,20 +59,25 @@ public class LivroController extends HttpServlet {
     // atende apenas requisições HTTP GET.
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
     	try {
     		livroService = new LivroService();
     		List<Livro> livros = livroService.listarLivros();
-    		
+    		response.setContentType("application/json");
+    		response.setCharacterEncoding("UTF-8");
     		if ( !livros.isEmpty() ) {
-    			genson = new Genson();
-    			String json = genson.serialize(livros);
     			response.setStatus(HttpServletResponse.SC_OK);
-    			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/livros/index.jsp");
-    			request.setAttribute("livros", livros);
-    			request.setAttribute("livrosJSON", json);
-    			rd.forward(request, response);
+    			// 1. O header Accept é configurado na requisição HTTP enviada pelo cliente e informa o tipo de dados aceito (esperado) como resposta.
+    			// 2. O header Content-Type é configurado na resposta HTTP e informa o tipo de dados retornado para o cliente.
+    			// 3. Accept informa o tipo de dados consumido e o Content-Type informa o tipo de dados produzido (cliente/servidor).
+    			if ( request.getHeader("Accept") != null && request.getHeader("Accept").contains("application/json") ) {
+    				genson = new Genson();
+        			String json = genson.serialize(livros);
+        			response.getWriter().println(json);
+            	} else {
+            		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/livros/index.jsp");
+        			request.setAttribute("livros", livros);
+        			rd.forward(request, response);
+            	}
     		} else {
     			response.sendError(HttpServletResponse.SC_NOT_FOUND, "Nenhum livro cadastrado!");
     		}

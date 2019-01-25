@@ -15,12 +15,13 @@
 							<tr>
 								<td>${livro.id}</td>
 								<td>${livro.titulo}</td>
-								<td>${livro.auto}</td>
+								<td>${livro.autor}</td>
 							</tr>
 							</c:forEach>
 						</tbody>
 					</table>
 					<a href="/livraria-web/">Voltar</a>
+					<button id="listar">Listar</button>
 				</div>
 			</div>
 		</div>
@@ -29,22 +30,24 @@
 			$(document).ready(function() {
 				
 				console.log("jQuery loaded!");
-				console.log(<%= request.getAttribute("livros") %>);
-				console.log(<%= request.getAttribute("livrosJSON") %>);
+				console.log('<%= request.getAttribute("livros") %>');
 				
-				$.ajax({
-					url: '/livros',
-					method: 'GET',
-					cache: false,
-					success: function(response) {
-						console.log(response);
-					},
-					error: function(response) {
-						
-					},
-					complete: function(response) {
-						
-					}
+				$('#listar').click(function(event) {
+					$.ajax({
+						url: '/livraria-web/livros',
+						method: 'GET',
+						dataType: 'json',
+						cache: false,
+						success: function(response) {
+							console.log(response);
+						},
+						error: function(response) {
+							console.log(response);
+						},
+						complete: function(response) {
+							console.log(response.status + ' - ' + response.statusText);
+						}
+					});
 				});
 				
 			});
