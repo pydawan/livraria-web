@@ -29,10 +29,14 @@
         </head>
 
         <body>
+            <div class="jumbotron text-center">
+                <h1>Livraria Monteiro Lobato</h1>
+                <p>A maior e melhor livraria do Brasil!</p>
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 id="app-name" class="text-center">Livraria Web</h1>
+                        <%-- <h1 id="app-name" class="text-center">Livraria Web</h1> --%>
                     </div>
                 </div>
             </div>
