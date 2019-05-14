@@ -1,6 +1,6 @@
 USE mysql;
 
- CREATE DATABASE livraria DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+CREATE DATABASE livraria DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 
 GRANT ALL PRIVILEGES ON livraria.* TO 'livraria'@'%' IDENTIFIED BY 'livraria';
 
